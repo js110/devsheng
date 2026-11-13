@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaGithub, FaBars, FaTimes, FaHome, FaCode, FaUser } from "react-icons/fa";
+import { FaGithub, FaBars, FaTimes, FaHome, FaCode, FaUser, FaBookOpen } from "react-icons/fa";
 
 const navLinks = [
-  { name: "Home", href: "#", icon: FaHome },
-  { name: "Projects", href: "#projects", icon: FaCode },
-  { name: "About", href: "#about", icon: FaUser },
+  { name: "Home", href: "/", icon: FaHome },
+  { name: "Projects", href: "/#projects", icon: FaCode },
+  { name: "Blog", href: "/blog", icon: FaBookOpen },
+  { name: "About", href: "/#about", icon: FaUser },
 ];
 
 export default function Navbar() {
@@ -37,7 +38,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <motion.a
-            href="#"
+            href="/"
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-2"
           >
@@ -78,6 +79,8 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
+            aria-label={isMobileMenuOpen ? "关闭导航" : "打开导航"}
+            aria-expanded={isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 text-[#888888] hover:text-[#00ff88] transition-colors"
           >
