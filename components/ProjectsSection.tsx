@@ -80,7 +80,7 @@ export default function ProjectsSection() {
       <div className="max-w-6xl mx-auto">
         {/* 标题 */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-12"
@@ -100,7 +100,7 @@ export default function ProjectsSection() {
 
         {/* 分类过滤器 */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="flex flex-wrap justify-center gap-4 mb-12"
@@ -127,7 +127,7 @@ export default function ProjectsSection() {
               <motion.div
                 key={project.id}
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={false}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 whileHover={{ y: -5 }}

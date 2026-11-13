@@ -1,14 +1,12 @@
 'use client';
 import React from 'react';
+import { useParams } from 'next/navigation';
 import { usePortfolioData } from '@/hooks/usePortfolioData';
 import ProjectDetailView from '@/components/ProjectDetailView';
 import Navbar from '@/components/Navbar';
 
-interface ProjectDetailPageProps {
-  params: { id: string };
-}
-
-const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ params }) => {
+const ProjectDetailPage: React.FC = () => {
+  const params = useParams<{ id: string }>();
   const { data, loading } = usePortfolioData();
   if (loading) return null;
   const project = data.projects.find(p => p.id === params.id);

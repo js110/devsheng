@@ -1,10 +1,11 @@
-﻿import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { mkdir, unlink, writeFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import { basename, join, resolve } from 'path'
 import { isAdminAuthenticated } from '@/lib/auth'
+import { put, del } from '@vercel/blob'
 
-const MAX_FILE_SIZE = 20 * 1024 * 1024 // 20MB
+const MAX_FILE_SIZE = 4 * 1024 * 1024 // 20MB
 const ALLOWED_IMAGE_TYPES = new Set(['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'])
 
 function unauthorized() {
@@ -61,6 +62,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: '只允许上传图片文件' }, { status: 400 })
     }
 
+    if (process.env.BLOB_READ_WRITE_TOKEN) {
+      const id = `${Date.now()}-${crypto.randomUUID()}`
+      const blob = await put(`uploads/${projectId}/${id}.${extensionFromMime(file.type)}`, file, { access: 'public', contentType: file.type })
+      return NextResponse.json({ success: true, file: { id, type: 'image', url: blob.url, filename: basename(file.name), size: file.size, createdAt: new Date().toISOString(), order: 0 } })
+    }
     const uploadDir = join(process.cwd(), 'public', 'uploads', projectId)
     if (!existsSync(uploadDir)) {
       await mkdir(uploadDir, { recursive: true })
@@ -106,6 +112,16 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: '文件路径是必需的' }, { status: 400 })
     }
 
+    if (process.env.BLOB_READ_WRITE_TOKEN && filePath.startsWith('https://')) {
+      const parsed = new URL(filePath)
+      const storeId = process.env.BLOB_READ_WRITE_TOKEN.split('_')[3]?.toLowerCase()
+      if (!storeId || parsed.hostname.toLowerCase() !== `${storeId}.public.blob.vercel-storage.com` || !parsed.pathname.startsWith('/uploads/')) {
+        return NextResponse.json({ error: '无效的文件路径' }, { status: 400 })
+      }
+      await del(filePath)
+      return NextResponse.json({ success: true })
+    }
+    if (process.env.BLOB_READ_WRITE_TOKEN && filePath.startsWith('/uploads/')) return NextResponse.json({ success: true })
     const normalizedPath = filePath.replace(/\\/g, '/')
     if (normalizedPath.includes('..') || !normalizedPath.startsWith('/uploads/')) {
       return NextResponse.json({ error: '无效的文件路径' }, { status: 400 })

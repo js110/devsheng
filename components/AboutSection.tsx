@@ -57,7 +57,7 @@ export default function AboutSection() {
       <div className="max-w-6xl mx-auto">
         {/* 标题 */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-12"
@@ -78,7 +78,7 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* 左侧：个人简介 */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={false}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="space-y-6"
@@ -131,7 +131,7 @@ export default function AboutSection() {
               {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={false}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
@@ -161,7 +161,7 @@ export default function AboutSection() {
               {education.map((edu, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={false}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   className="p-4 bg-[#111] rounded-lg border border-[#222] hover:border-[#bf00ff] transition-all"
@@ -181,7 +181,7 @@ export default function AboutSection() {
 
           {/* 右侧：技能和工具 */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={false}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="space-y-6"

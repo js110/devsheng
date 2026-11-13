@@ -14,14 +14,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Fira+Code:wght@300..700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
       <body className="min-h-screen bg-[#0a0a0a] text-white font-mono">
         {/* 矩阵雨背景 */}
         <div className="matrix-bg" />

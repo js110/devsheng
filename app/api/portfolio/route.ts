@@ -1,6 +1,7 @@
-﻿import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { promises as fs } from 'fs'
 import path from 'path'
+import { list, put } from '@vercel/blob'
 import { PortfolioData, defaultPortfolioData } from '@/types/portfolio'
 import { isAdminAuthenticated } from '@/lib/auth'
 
@@ -17,7 +18,14 @@ async function ensureDataDirectory() {
 
 async function readDataFile(): Promise<PortfolioData> {
   try {
-    await ensureDataDirectory()
+    if (process.env.BLOB_READ_WRITE_TOKEN) {
+      const { blobs } = await list({ prefix: 'portfolio/data.json', limit: 1 })
+      if (blobs[0]?.pathname === 'portfolio/data.json') {
+        const response = await fetch(`${blobs[0].url}?v=${blobs[0].uploadedAt.getTime()}`, { cache: 'no-store' })
+        if (!response.ok) throw new Error('Blob read failed')
+        return await response.json()
+      }
+    }
     const data = await fs.readFile(DATA_FILE_PATH, 'utf-8')
     return JSON.parse(data)
   } catch {
@@ -26,6 +34,10 @@ async function readDataFile(): Promise<PortfolioData> {
 }
 
 async function writeDataFile(data: PortfolioData): Promise<void> {
+  if (process.env.BLOB_READ_WRITE_TOKEN) {
+    await put('portfolio/data.json', JSON.stringify(data), { access: 'public', allowOverwrite: true, addRandomSuffix: false, contentType: 'application/json', cacheControlMaxAge: 60 })
+    return
+  }
   await ensureDataDirectory()
   await fs.writeFile(DATA_FILE_PATH, JSON.stringify(data, null, 2), 'utf-8')
 }
@@ -86,8 +98,7 @@ export async function DELETE(request: NextRequest) {
   if (!isAdminAuthenticated(request)) return unauthorized()
 
   try {
-    await ensureDataDirectory()
-    await fs.writeFile(DATA_FILE_PATH, JSON.stringify(defaultPortfolioData, null, 2), 'utf-8')
+    await writeDataFile(defaultPortfolioData)
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error('清除数据失败:', error)

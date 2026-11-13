@@ -57,7 +57,7 @@ export default function HeroSection() {
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         {/* 左侧：个人信息 */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={false}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           className="space-y-6"
@@ -148,7 +148,7 @@ export default function HeroSection() {
 
         {/* 右侧：终端窗口 */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={false}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
