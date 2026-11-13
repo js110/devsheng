@@ -2,3 +2,44 @@
 .blog-site *{box-sizing:border-box}.blog-header{background:#142337;color:#fff}.blog-header-inner{height:64px;max-width:1100px;margin:auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between}.blog-brand{font-family:ui-monospace,monospace;font-weight:700;letter-spacing:.03em}.blog-brand span{color:#68d7bd}.blog-header nav{display:flex;gap:28px;font-size:14px;color:#d3dce5}.blog-header a:hover{color:#68d7bd}.blog-header a:focus-visible,.blog-site a:focus-visible,.blog-site button:focus-visible{outline:2px solid #298d83;outline-offset:4px}.blog-wrap{max-width:1000px;padding:0 32px;margin:auto}.blog-topline{padding-top:54px;color:#69818a;font-size:11px;letter-spacing:.19em;font-weight:700}.blog-topline span{color:#47a495;margin:0 7px}.blog-intro{display:flex;align-items:end;justify-content:space-between;padding:42px 0 50px;border-bottom:1px solid #ccd5dc}.blog-eyebrow{font-size:12px;letter-spacing:.16em;color:#408d83;font-weight:700}.blog-intro h1{font-size:clamp(50px,8vw,88px);line-height:1.1;letter-spacing:-.06em;margin:13px 0 18px;font-weight:750}.blog-intro h1 span{color:#44ad99}.blog-intro p{color:#657585;font-size:15px}.blog-count{display:flex;gap:9px;align-items:baseline;color:#657585;font-size:13px}.blog-count strong{font-size:40px;color:#25384a;font-weight:500;line-height:1}.blog-section-title{display:flex;justify-content:space-between;align-items:center;color:#66808b;font-size:12px;letter-spacing:.07em;padding:22px 0 8px}.post-row{display:grid;grid-template-columns:126px 1fr 42px;gap:20px;padding:28px 0;border-bottom:1px solid #dbe1e5}.post-row time,.post-row-time{font-family:ui-monospace,monospace;font-size:12px;color:#738391;padding-top:6px}.post-link{display:flex;justify-content:space-between;gap:16px;align-items:baseline;color:#172b3e}.post-link h2{font-size:19px;font-weight:650;line-height:1.45}.post-link span{font-size:19px;color:#53a798}.post-link:hover h2{color:#258c7c}.post-row p{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;color:#71808b;font-size:14px;line-height:1.8;margin-top:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.post-row-time{text-align:right}.blog-footer{max-width:1000px;margin:70px auto 0;padding:24px 32px 45px;border-top:1px solid #dbe1e5;color:#84939d;font-size:12px}.blog-footer a{color:#428b80}.blog-article{max-width:850px;margin:auto;padding:56px 32px 30px}.back-link{font-size:13px;color:#488e84}.article-header{padding:52px 0 38px;border-bottom:1px solid #d2dbe0}.article-header h1{font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1.35;letter-spacing:-.035em;margin:18px 0 24px}.article-meta{display:flex;gap:12px;color:#82909a;font-size:13px}.article-body{font-size:17px;line-height:2;color:#293849;overflow-wrap:anywhere;padding:35px 0}.article-body p{margin:0 0 1.2em}.article-body h1,.article-body h2,.article-body h3{font-weight:700;line-height:1.4;margin:1.6em 0 .7em}.article-body h1{font-size:1.6em}.article-body h2{font-size:1.4em}.article-body h3{font-size:1.2em}.article-body a{color:#258d80;text-decoration:underline}.article-body img{max-width:100%;height:auto;border-radius:4px;margin:12px auto}.article-body pre{background:#172a3a;color:#e2edf0;border-radius:8px;padding:18px;overflow:auto;line-height:1.65;margin:1.2em 0;font:13px/1.65 ui-monospace,monospace}.article-body code{font-family:ui-monospace,monospace}.article-body ol{list-style:decimal;padding-left:1.7em}.article-body ul{list-style:disc;padding-left:1.7em}.article-body blockquote{border-left:3px solid #62b7a8;padding-left:20px;color:#647582;margin:1.4em 0}.article-body hr{border:0;border-top:1px solid #d5dfe4;margin:2em 0}.article-end{display:flex;justify-content:space-between;gap:15px;border-top:1px solid #dbe1e5;padding:22px 0 38px;color:#93a0a8;font-size:13px}.article-end a{color:#438f84}.blog-empty{padding:48px 0;color:#647582}.manage-wrap{max-width:1000px;margin:auto;padding:52px 32px}.manage-wrap h1{font-size:36px;line-height:1.3;font-weight:700;margin:14px 0}.manage-panel{background:#fff;border:1px solid #dce4e7;border-radius:10px;padding:24px;margin-top:25px}.manage-panel label{display:block;font-size:13px;color:#526978;font-weight:600;margin:16px 0 6px}.manage-panel input,.manage-panel textarea{width:100%;background:#fff;border:1px solid #c7d2d8;color:#182b3a;border-radius:6px;padding:10px 12px;font:inherit}.manage-panel button,.manage-button{display:inline-flex;align-items:center;justify-content:center;background:#1c6f64;color:white;border:0;border-radius:6px;padding:9px 15px;font-size:14px;cursor:pointer}.manage-panel button:hover,.manage-button:hover{background:#155b53}.manage-panel button:disabled{opacity:.5;cursor:wait}.manage-panel button.secondary{background:#e8eff0;color:#32515b}.manage-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.manage-list{display:grid;gap:0}.manage-row{display:flex;justify-content:space-between;gap:15px;align-items:center;border-bottom:1px solid #e6ebed;padding:15px 0}.manage-row small{color:#73838d}.editor-toolbar{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.editor-toolbar button{background:#eaf0f1;color:#36515d;padding:6px 10px}.editor{min-height:300px;border:1px solid #c7d2d8;border-radius:6px;padding:16px;background:#fff;outline-color:#2b9889}.editor p{margin:.7em 0}.editor ul{list-style:disc;padding-left:1.5em}.editor ol{list-style:decimal;padding-left:1.5em}.editor pre{background:#172a3a;color:white;overflow:auto;padding:12px}.editor img{max-width:100%}.form-message{font-size:13px;color:#ad4c39;margin-top:12px}.form-success{color:#187a6c}.manage-note{color:#758895;font-size:13px}.manage-grid{display:grid;grid-template-columns:1fr 220px;gap:16px}@media(max-width:600px){.blog-header-inner{padding:0 18px}.blog-header nav{gap:16px}.blog-wrap{padding:0 20px}.blog-topline{padding-top:35px}.blog-intro{padding:30px 0 35px}.blog-count strong{font-size:30px}.post-row{grid-template-columns:1fr;gap:4px;padding:23px 0}.post-row-time{display:none}.blog-article{padding:34px 20px}.article-header{padding:35px 0 28px}.article-body{font-size:16px}.manage-wrap{padding:34px 18px}.manage-panel{padding:17px}.manage-grid{grid-template-columns:1fr}}
 
 .blog-count{white-space:nowrap;flex-shrink:0}
+
+/* 与首页共用的深色终端配色；正文使用柔和的浅灰以便长时间阅读。 */
+.blog-site {
+  background: #0a0a0a;
+  color: #e8eded;
+  font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, 'PingFang SC', 'Microsoft YaHei', monospace;
+}
+.blog-header { background: #0a0a0a; color: #f4f7f5; border-bottom: 1px solid #222; }
+.blog-brand span { color: #00ff88; }
+.blog-header nav { color: #a3aaa6; }
+.blog-header a:hover { color: #00ff88; }
+.blog-site a:focus-visible, .blog-site button:focus-visible { outline-color: #00ff88; }
+.blog-topline, .blog-section-title, .post-row time, .post-row-time, .article-meta { color: #a1aaa5; }
+.blog-topline span, .blog-eyebrow, .blog-footer a, .back-link, .article-end a { color: #00df87; }
+.blog-intro, .post-row, .blog-footer, .article-header, .article-end { border-color: #282e2b; }
+.blog-intro h1, .article-header h1, .manage-wrap h1 { color: #f5f7f6; }
+.blog-intro h1 span { color: #00ff88; text-shadow: 0 0 12px rgba(0,255,136,.48); }
+.blog-intro p, .blog-count, .post-row p, .manage-note { color: #a6afaa; }
+.blog-count strong { color: #00ffff; text-shadow: 0 0 12px rgba(0,255,255,.4); }
+.post-link { color: #f0f4f1; }
+.post-link span, .post-link:hover h2 { color: #00ff88; }
+.post-row p, .article-body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+.blog-footer, .article-end, .manage-row small { color: #9ba49e; }
+.article-body { color: #d0d8d3; }
+.article-body a { color: #00eac4; }
+.article-body pre, .editor pre { background: #111; color: #d7e5dc; border: 1px solid #303c34; }
+.article-body blockquote { border-color: #00c978; color: #aab8ad; }
+.article-body hr { border-color: #303a33; }
+.blog-empty { color: #acb9af; }
+.manage-panel { background: #111; border-color: #303832; }
+.manage-panel label { color: #b6c3b9; }
+.manage-panel input, .manage-panel textarea, .editor { background: #0a0a0a; border-color: #3a4840; color: #e2eae4; }
+.manage-panel input::placeholder, .manage-panel textarea::placeholder { color: #89958e; }
+.manage-panel button, .manage-button { background: #00cf75; color: #07120c; }
+.manage-panel button:hover, .manage-button:hover { background: #00ff88; }
+.manage-panel button.secondary, .editor-toolbar button { background: #1b2420; color: #d3e5da; }
+.manage-panel button.secondary:hover, .editor-toolbar button:hover { background: #2c3e33; }
+.manage-row { border-color: #2b342e; }
+.editor { outline-color: #00ff88; }
+.form-message { color: #ffac9d; }
+.form-success { color: #64e6a1; }
