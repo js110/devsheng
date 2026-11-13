@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
   if (!isAdminAuthenticated(request)) return NextResponse.json({error:'请先登录'}, {status:401})
   try {
     const input = await request.json()
-    if (typeof input.title !== 'string' || !input.title.trim() || input.title.length > 160 || typeof input.html !== 'string' || input.html.length > 500000 || typeof input.publishedAt !== 'string' || !/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(input.publishedAt)) return NextResponse.json({error:'请检查标题、正文和发布时间'}, {status:400})
+    if (typeof input.title !== 'string' || !input.title.trim() || input.title.length > 160 || typeof input.html !== 'string' || input.html.length > 500000 || typeof input.publishedAt !== 'string' || !/^\d{4}-\d{2}-\d{2}(?: \d{2}:\d{2})?$/.test(input.publishedAt)) return NextResponse.json({error:'请检查标题、正文和发布时间'}, {status:400})
     const posts = await readPosts()
     const id = typeof input.id === 'string' && /^[a-zA-Z0-9-]{1,80}$/.test(input.id) ? input.id : crypto.randomUUID()
     const old = posts.find(p => p.id === id)
