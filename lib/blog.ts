@@ -24,9 +24,19 @@ export function summary(html: string) {
 
 export async function readPosts(): Promise<BlogPost[]> {
   if (!process.env.BLOB_READ_WRITE_TOKEN) return initialPosts
-  const { blobs } = await list({ prefix: blobPath, limit: 1 })
-  if (!blobs.length || blobs[0].pathname !== blobPath) return initialPosts
-  const response = await fetch(`${blobs[0].url}?v=${blobs[0].uploadedAt.getTime()}`, { cache: 'no-store' })
+  let cursor: string | undefined
+  let latest: { pathname: string; url: string } | undefined
+  do {
+    const page = await list({ prefix: `${blobPath}/revisions/`, limit: 1000, ...(cursor ? { cursor } : {}) })
+    for (const blob of page.blobs) if (!latest || blob.pathname > latest.pathname) latest = blob
+    cursor = page.hasMore ? page.cursor : undefined
+  } while (cursor)
+  if (!latest) {
+    const { blobs } = await list({ prefix: blobPath, limit: 1 })
+    latest = blobs.find(blob => blob.pathname === blobPath)
+  }
+  if (!latest) return initialPosts
+  const response = await fetch(latest.url, { cache: 'no-store' })
   if (!response.ok) throw new Error('Unable to read blog data')
   const data: unknown = await response.json()
   if (!Array.isArray(data)) throw new Error('Invalid blog data')
@@ -34,6 +44,7 @@ export async function readPosts(): Promise<BlogPost[]> {
 }
 export async function savePosts(posts: BlogPost[]) {
   if (!process.env.BLOB_READ_WRITE_TOKEN) throw new Error('Blog storage is not configured')
-  await put(blobPath, JSON.stringify(posts), { access:'public', allowOverwrite:true, addRandomSuffix:false, contentType:'application/json', cacheControlMaxAge:60 })
+  const revision = `${String(Date.now()).padStart(13, '0')}-${crypto.randomUUID()}`
+  await put(`${blobPath}/revisions/${revision}.json`, JSON.stringify(posts), { access:'public', addRandomSuffix:false, contentType:'application/json', cacheControlMaxAge:60 })
 }
 export function sortPosts(posts: BlogPost[]) { return [...posts].sort((a,b) => b.publishedAt.localeCompare(a.publishedAt)) }
