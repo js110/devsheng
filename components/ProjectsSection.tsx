@@ -23,6 +23,35 @@ interface Project {
 const projects: Project[] = [
   {
     id: "1",
+    title: "Pi VS Code",
+    description: "把 Pi 编码代理接进 VS Code 的一等公民侧边栏，基于官方 Pi Agent SDK。",
+    longDescription: "A first-class VS Code sidebar powered by the native Pi coding agent SDK：在编辑器内直接和编码代理对话、调用工具、查看代码改动与测试结果，模型订阅可配置。",
+    image: "/covers/pi-vscode.svg",
+    tags: ["VS Code", "TypeScript", "Agent", "SDK"],
+    github: "https://github.com/js110/pi-vscode",
+    stars: 0,
+    forks: 0,
+    language: "TypeScript",
+    languageColor: "#3178c6",
+    category: "Tools"
+  },
+  {
+    id: "2",
+    title: "DevSheng",
+    description: "个人主页与技术博客，Next.js App Router + Vercel Blob，深色终端风格。",
+    longDescription: "本站源码：作品集与博客数据存放在 Vercel Blob，管理后台可在线编辑发布文章与上传封面，主题沿用首页的终端霓虹风格，部署在 Vercel 并绑定自定义域名。",
+    image: "/covers/devsheng.svg",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    github: "https://github.com/js110/devsheng",
+    demo: "https://jiangsheng.icu",
+    stars: 0,
+    forks: 0,
+    language: "TypeScript",
+    languageColor: "#3178c6",
+    category: "Web"
+  },
+  {
+    id: "3",
     title: "PDF Translate",
     description: "论文翻译工具",
     longDescription: "学术论文翻译工具，支持多种语言互译，保留原文格式，支持批量翻译。",
@@ -36,7 +65,7 @@ const projects: Project[] = [
     category: "Tools"
   },
   {
-    id: "2",
+    id: "4",
     title: "Voice2Text",
     description: "Voice to text conversion tool",
     longDescription: "语音转文字工具，支持多种语言和音频格式，使用先进的语音识别技术。",
@@ -50,7 +79,7 @@ const projects: Project[] = [
     category: "AI/ML"
   },
   {
-    id: "3",
+    id: "5",
     title: "AI Companionship",
     description: "复刻亲友声音并与之正常对话",
     longDescription: "复刻亲友声音并与之正常对话的AI陪伴系统，支持语音克隆和多轮对话。",
@@ -65,7 +94,7 @@ const projects: Project[] = [
   },
 ];
 
-const categories = ["All", "AI/ML", "Tools"];
+const categories = ["All", "AI/ML", "Tools", "Web"];
 
 export default function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All");
